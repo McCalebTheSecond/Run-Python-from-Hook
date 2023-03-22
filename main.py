@@ -7,6 +7,8 @@ app = Flask(__name__)
 def execute_code():
     code = request.data.decode('utf-8')
     print(f"Received code:\n{code}")
+    print()
+    print()
     
     if code is None or code == "":
         print("Error: No code provided")
@@ -20,8 +22,10 @@ def execute_code():
         if result is None:
             print("Error: No result variable found")
             return jsonify({'error': 'No result variable found'}), 400
-
-        print(f"Result: {result}")
+        
+        print()
+        print(f"Result:\n {result}")
+        print()
         return jsonify(result)
     except Exception as e:
         print(f"Error: {str(e)}")
